@@ -1,3 +1,5 @@
-import {generationObjFoto} from './data.js';
+import { generationObjFoto } from './data.js';
+import { generateThumbnails } from './thumbnail.js';
 
-generationObjFoto();
+const arrFoto = generationObjFoto();
+generateThumbnails(arrFoto);
