@@ -1,3 +1,5 @@
+import { displayBigPicture } from './fullSizeImage.js';
+
 const thumbNailTemplate = document.querySelector('#picture').content.querySelector('.picture');
 const container = document.querySelector('.pictures');
 
@@ -17,6 +19,7 @@ const generateThumbnails = (pictures) => {
 
   pictures.forEach((picture) => {
     const thumbnail = createThumbnail(picture);
+    thumbnail.addEventListener('click', () => displayBigPicture(picture));
     fragment.append(thumbnail);
   });
 
