@@ -20,24 +20,24 @@ function givesNumbers(string) {
 
 givesNumbers('ECMAScript 2022');*/
 
-const outOfTime = (startWorkDay, endWorkDay, startMeeting, duration) => {
-  const arrStartWorkDay = startWorkDay.split(':');
-  const arrEndWorkDay = endWorkDay.split(':');
-  const arrStartMeeting = startMeeting.split(':');
+// const outOfTime = (startWorkDay, endWorkDay, startMeeting, duration) => {
+//   const arrStartWorkDay = startWorkDay.split(':');
+//   const arrEndWorkDay = endWorkDay.split(':');
+//   const arrStartMeeting = startMeeting.split(':');
 
-  const startWorkDayMinutes = (Number(arrStartWorkDay[0]) * 60) + Number(arrStartWorkDay[1]);
-  const endWorkDayMinutes = (Number(arrEndWorkDay[0]) * 60) + Number(arrEndWorkDay[1]);
-  const startMeetingMinutes = (Number(arrStartMeeting[0]) * 60) + Number(arrStartMeeting[1]);
+//   const startWorkDayMinutes = (Number(arrStartWorkDay[0]) * 60) + Number(arrStartWorkDay[1]);
+//   const endWorkDayMinutes = (Number(arrEndWorkDay[0]) * 60) + Number(arrEndWorkDay[1]);
+//   const startMeetingMinutes = (Number(arrStartMeeting[0]) * 60) + Number(arrStartMeeting[1]);
 
-  if (startMeetingMinutes >= startWorkDayMinutes && startMeetingMinutes <= endWorkDayMinutes) {
-    if (startMeetingMinutes + duration <= endWorkDayMinutes) {
-      return true;
-    }
-  }
-  return false;
-};
+//   if (startMeetingMinutes >= startWorkDayMinutes && startMeetingMinutes <= endWorkDayMinutes) {
+//     if (startMeetingMinutes + duration <= endWorkDayMinutes) {
+//       return true;
+//     }
+//   }
+//   return false;
+// };
 
-outOfTime('8:00', '17:30', '08:00', 900);
+// outOfTime('8:00', '17:30', '08:00', 900);
 
 /*
 '8:00' - начало рабочего дня

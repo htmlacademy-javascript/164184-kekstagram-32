@@ -1,5 +1,5 @@
 import { generationObjFoto } from './data.js';
-import { generateThumbnails } from './thumbnail.js';
+import { renderGallery } from './gallery.js';
 
 const arrFoto = generationObjFoto();
-generateThumbnails(arrFoto);
+renderGallery(arrFoto);
