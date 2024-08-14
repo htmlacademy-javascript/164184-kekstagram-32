@@ -1,3 +1,5 @@
+import { sendingData } from './requestModule.js';
+
 const body = document.querySelector('body');
 const imgUploadForm = document.querySelector('.img-upload__form');
 const imgUploadOverlay = document.querySelector('.img-upload__overlay');
@@ -11,6 +13,7 @@ const scaleValueInput = document.querySelector('.scale__control--value');
 const previewImage = document.querySelector('.img-upload__preview img');
 const slider = document.querySelector('.effect-level__slider');
 const imgUploadEffectLevel = document.querySelector('.img-upload__effect-level');
+let currentScale = 1;
 
 const pristine = new Pristine(imgUploadForm, {
   classTo: 'img-upload__field-wrapper',
@@ -22,7 +25,8 @@ const pristine = new Pristine(imgUploadForm, {
 imgUploadForm.addEventListener('submit', (evt) => {
   evt.preventDefault();
   if (pristine.validate()) {
-    evt.target.submit();
+    sendingData(imgUploadForm);
+    //evt.target.submit();
   }
   pristine.validate();
 });
@@ -66,6 +70,9 @@ const closeImgUploadOverlay = () => {
   imgUploadOverlay.classList.add('hidden');
   body.classList.remove('modal-open');
   imgUploadInput.value = '';
+  textHashtagsInput.value = '';
+  textDescription.value = '';
+  slider.noUiSlider.updateOptions({start:100});
 };
 
 imgUploadCancelButton.addEventListener('click', () => {
@@ -73,7 +80,8 @@ imgUploadCancelButton.addEventListener('click', () => {
 });
 
 document.addEventListener('keydown', (evn) => {
-  if(evn.key === 'Escape') {
+  const success = document.querySelector('.success');
+  if(evn.key === 'Escape' && success) {
     closeImgUploadOverlay();
   }
 });
@@ -90,7 +98,6 @@ textDescription.addEventListener('keydown', (e) => {
   }
 });
 
-let currentScale = 1;
 const updateScale = (scale) => {
   currentScale = scale;
   scaleValueInput.value = `${Math.round(currentScale * 100)}%`;
@@ -201,3 +208,5 @@ effectsRadioButtons.forEach((button) => {
     updateImageFilter();
   });
 });
+
+export {closeImgUploadOverlay};
