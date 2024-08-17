@@ -11,9 +11,7 @@ const requestDate = () => {
       throw new Error();
     })
     .then((date) => renderGallery(date))
-    .catch(() => {
-      showingDownloadError();
-    });
+    .catch(() => showingDownloadError());
 };
 
 const sendingData = (imgUploadForm) => {
@@ -39,4 +37,3 @@ const sendingData = (imgUploadForm) => {
 };
 
 export {requestDate, sendingData};
-
