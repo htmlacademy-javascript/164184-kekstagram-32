@@ -7,15 +7,6 @@ function getRandomInteger (min, max) {
   return Math.floor(result);
 }
 
-const createIdGenerator = () => {
-  let lastGeneratedId = 0;
-
-  return function() {
-    lastGeneratedId += 1;
-    return lastGeneratedId;
-  };
-};
-
 const isEscapeKey = (evt) => evt.key === 'Escape';
 
 const templateErrorContainer = document.querySelector('#data-error').content.cloneNode(true);
@@ -90,4 +81,4 @@ errorContainerInner.addEventListener('click', (event) => {
   }
 });
 
-export {getRandomInteger, createIdGenerator, isEscapeKey, showingDownloadError, showingSuccess, showingError};
+export {getRandomInteger, isEscapeKey, showingDownloadError, showingSuccess, showingError};

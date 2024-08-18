@@ -1,5 +1,5 @@
 import './form.js';
 import './avatar.js';
-import { requestDate } from './requestModule.js';
+import { requestData } from './request-module.js';
 
-requestDate();
+requestData();

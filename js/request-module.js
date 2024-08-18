@@ -3,7 +3,7 @@ import {showingDownloadError, showingSuccess, showingError} from './util.js';
 import {blockFormSubmitButton} from './form.js';
 
 
-const requestDate = () => {
+const requestData = () => {
   fetch('https://32.javascript.htmlacademy.pro/kekstagram/data')
     .then((response) => {
       if (response.ok) {
@@ -39,4 +39,4 @@ const sendingData = (imgUploadForm) => {
     });
 };
 
-export {requestDate, sendingData};
+export {requestData, sendingData};

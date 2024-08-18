@@ -1,5 +1,5 @@
 import { firstStart } from './thumbnail.js';
-import { displayBigPicture } from './fullSizeImage.js';
+import { displayBigPicture } from './full-sizei-mage.js';
 
 const container = document.querySelector('.pictures');
 const imgFilters = document.querySelector('.img-filters');
@@ -11,7 +11,6 @@ const renderGallery = (pictures) => {
     if (!thumbnail) {
       return;
     }
-    //evt.preventDefault();
     const picture = pictures.find((item) => item.id === +thumbnail.dataset.thumbnailId);
     displayBigPicture(picture);
   });
