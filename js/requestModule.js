@@ -1,5 +1,6 @@
-import { renderGallery } from './gallery';
+import { renderGallery } from './gallery.js';
 import {showingDownloadError, showingSuccess, showingError} from './util.js';
+import {blockFormSubmitButton} from './form.js';
 
 
 const requestDate = () => {
@@ -15,7 +16,8 @@ const requestDate = () => {
 };
 
 const sendingData = (imgUploadForm) => {
-  fetch('https://32.javascript.htmlacademy.pro/kekstagram1',
+  blockFormSubmitButton(true);
+  fetch('https://32.javascript.htmlacademy.pro/kekstagram',
     {
       method: 'POST',
       //mode: 'no-cors',
@@ -30,9 +32,11 @@ const sendingData = (imgUploadForm) => {
     })
     .then(() => {
       showingSuccess();
+      blockFormSubmitButton(false);
     })
     .catch(() => {
       showingError();
+      blockFormSubmitButton(false);
     });
 };
 
