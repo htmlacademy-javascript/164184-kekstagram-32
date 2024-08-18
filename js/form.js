@@ -13,6 +13,7 @@ const scaleValueInput = document.querySelector('.scale__control--value');
 const previewImage = document.querySelector('.img-upload__preview img');
 const slider = document.querySelector('.effect-level__slider');
 const imgUploadEffectLevel = document.querySelector('.img-upload__effect-level');
+const effectNoneInput = document.querySelector('#effect-none');
 let currentScale = 1;
 
 const pristine = new Pristine(imgUploadForm, {
@@ -26,7 +27,6 @@ imgUploadForm.addEventListener('submit', (evt) => {
   evt.preventDefault();
   if (pristine.validate()) {
     sendingData(imgUploadForm);
-    //evt.target.submit();
   }
   pristine.validate();
 });
@@ -73,17 +73,15 @@ const closeImgUploadOverlay = () => {
   textHashtagsInput.value = '';
   textDescription.value = '';
   slider.noUiSlider.updateOptions({start:100});
+  previewImage.style.filter = '';
+  currentScale = 1;
+  previewImage.style.transform = 'scale(1)';
+  imgUploadEffectLevel.style.display = 'none';
+  effectNoneInput.checked = true;
 };
 
 imgUploadCancelButton.addEventListener('click', () => {
   closeImgUploadOverlay();
-});
-
-document.addEventListener('keydown', (evn) => {
-  const success = document.querySelector('.success');
-  if(evn.key === 'Escape' && success) {
-    closeImgUploadOverlay();
-  }
 });
 
 textHashtagsInput.addEventListener('keydown', (e) => {
