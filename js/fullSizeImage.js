@@ -72,7 +72,6 @@ const displayBigPicture = ({description, url, likes, comments}) => {
 
   document.addEventListener('keydown', (evn) => {
     if(evn.key === 'Escape') {
-      //evn.preventDefault();
       closeBigPicture();
     }
   });

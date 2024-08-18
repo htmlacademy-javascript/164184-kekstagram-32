@@ -15,7 +15,7 @@ const requestDate = () => {
 };
 
 const sendingData = (imgUploadForm) => {
-  fetch('https://32.javascript.htmlacademy.pro/kekstagram',
+  fetch('https://32.javascript.htmlacademy.pro/kekstagram1',
     {
       method: 'POST',
       //mode: 'no-cors',

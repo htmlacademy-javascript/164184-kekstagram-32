@@ -48,7 +48,7 @@ successButtonClose.addEventListener('click', () => {
 
 document.addEventListener('keydown', (evn) => {
   if(evn.key === 'Escape') {
-    successContainerClose();
+    successContainer.remove();
   }
 });
 
@@ -76,8 +76,11 @@ errorButtonClose.addEventListener('click', () => {
 });
 
 document.addEventListener('keydown', (evn) => {
-  if(evn.key === 'Escape') {
+  const errorContainerInnerP = document.querySelector('.error');
+  if(evn.key === 'Escape' && errorContainerInnerP) {
     errorContainerClose();
+  } else if(evn.key === 'Escape') {
+    closeImgUploadOverlay();
   }
 });
 
