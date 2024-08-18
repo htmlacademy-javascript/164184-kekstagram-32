@@ -27,6 +27,8 @@ const pristine = new Pristine(imgUploadForm, {
 imgUploadForm.addEventListener('submit', (evt) => {
   evt.preventDefault();
   if (pristine.validate()) {
+    //textDescription.value = textDescription.value.trim();
+    textHashtagsInput.value = textHashtagsInput.value.trim();
     sendingData(imgUploadForm);
   }
   pristine.validate();
@@ -79,6 +81,9 @@ const closeImgUploadOverlay = () => {
   previewImage.style.transform = 'scale(1)';
   imgUploadEffectLevel.style.display = 'none';
   effectNoneInput.checked = true;
+  scaleValueInput.value = '100%';
+  pristine.reset();
+  imgUploadForm.reset();
 };
 
 imgUploadCancelButton.addEventListener('click', () => {
