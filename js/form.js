@@ -1,4 +1,4 @@
-import { sendingData } from './requestModule.js';
+import { sendingData } from './request-module.js';
 
 const body = document.querySelector('body');
 const imgUploadForm = document.querySelector('.img-upload__form');
@@ -27,7 +27,6 @@ const pristine = new Pristine(imgUploadForm, {
 imgUploadForm.addEventListener('submit', (evt) => {
   evt.preventDefault();
   if (pristine.validate()) {
-    //textDescription.value = textDescription.value.trim();
     textHashtagsInput.value = textHashtagsInput.value.trim();
     sendingData(imgUploadForm);
   }
@@ -37,7 +36,7 @@ imgUploadForm.addEventListener('submit', (evt) => {
 const validateHashtagFormat = (value) => {
   if (value.trim() === '') {
     return true;
-  } // Поле валидно, если оно пустое
+  }
   const hashtags = value.trim().split(/\s+/);
   const hashtagRegex = /^#[a-zA-Zа-яА-ЯёЁ0-9]{1,19}$/;
   return hashtags.every((tag) => hashtagRegex.test(tag));
@@ -46,7 +45,7 @@ const validateHashtagFormat = (value) => {
 const validateHashtagUnique = (value) => {
   if (value.trim() === '') {
     return true;
-  } // Поле валидно, если оно пустое
+  }
   const hashtags = value.trim().split(/\s+/);
   const lowerCasedHashtags = hashtags.map((tag) => tag.toLowerCase());
   return new Set(lowerCasedHashtags).size === lowerCasedHashtags.length;
@@ -55,7 +54,7 @@ const validateHashtagUnique = (value) => {
 const validateHashtagCount = (value) => {
   if (value.trim() === '') {
     return true;
-  } // Поле валидно, если оно пустое
+  }
   const hashtags = value.trim().split(/\s+/);
   return hashtags.length <= 5;
 };

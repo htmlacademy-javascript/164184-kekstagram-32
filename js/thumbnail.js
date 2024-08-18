@@ -1,3 +1,5 @@
+const RERENDER_DELAY = 500;
+
 const thumbNailTemplate = document.querySelector('#picture').content.querySelector('.picture');
 const picturesTitle = document.querySelector('.pictures__title');
 const imgUpload = document.querySelector('.img-upload');
@@ -65,7 +67,6 @@ const debounce = (func, delay) => (...args) => {
   timeout = setTimeout(() => func.apply(this, args), delay);
 };
 
-const RERENDER_DELAY = 500;
 const debouncedShowDefault = debounce(() => showDefault(originalArrPictures, containerGallery), RERENDER_DELAY);
 const debouncedSortDiscussed = debounce(() => sortDiscussed(originalArrPictures, containerGallery), RERENDER_DELAY);
 const debouncedShowRandomThumbnails = debounce(() => showRandomThumbnails(originalArrPictures, containerGallery), RERENDER_DELAY);
