@@ -14,6 +14,7 @@ const previewImage = document.querySelector('.img-upload__preview img');
 const slider = document.querySelector('.effect-level__slider');
 const imgUploadEffectLevel = document.querySelector('.img-upload__effect-level');
 const effectNoneInput = document.querySelector('#effect-none');
+const submitFormButton = imgUploadForm.querySelector('.img-upload__submit');
 let currentScale = 1;
 
 const pristine = new Pristine(imgUploadForm, {
@@ -207,4 +208,15 @@ effectsRadioButtons.forEach((button) => {
   });
 });
 
-export {closeImgUploadOverlay};
+const blockFormSubmitButton = (isSubmit) => {
+  if(isSubmit) {
+    submitFormButton.disabled = true;
+    submitFormButton.textContent = 'Отправка...';
+  } else {
+    submitFormButton.disabled = false;
+    submitFormButton.textContent = 'Опубликовать';
+  }
+};
+
+
+export {closeImgUploadOverlay, blockFormSubmitButton};
