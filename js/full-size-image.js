@@ -70,11 +70,14 @@ const displayBigPicture = ({description, url, likes, comments}) => {
   body.classList.add('modal-open');
   bigPicture.classList.remove('hidden');
 
-  document.addEventListener('keydown', (evn) => {
-    if(evn.key === 'Escape') {
+  const onDocumentKeydown = (evn) => {
+    if (evn.key === 'Escape') {
       closeBigPicture();
+      document.removeEventListener('keydown', onDocumentKeydown);
     }
-  });
+  };
+  document.addEventListener('keydown', onDocumentKeydown);
+
 };
 
 bigPictureCancel.addEventListener('click', closeBigPicture);
