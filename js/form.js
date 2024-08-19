@@ -38,8 +38,8 @@ const validateHashtagFormat = (value) => {
     return true;
   }
   const hashtags = value.trim().split(/\s+/);
-  const hashtagRegex = /^#[a-zA-Zа-яА-ЯёЁ0-9]{1,19}$/;
-  return hashtags.every((tag) => hashtagRegex.test(tag));
+  const HASHTAGREGEX = /^#[a-zA-Zа-яА-ЯёЁ0-9]{1,19}$/;
+  return hashtags.every((tag) => HASHTAGREGEX.test(tag));
 };
 
 const validateHashtagUnique = (value) => {

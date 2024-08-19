@@ -1,5 +1,5 @@
 import { firstStart } from './thumbnail.js';
-import { displayBigPicture } from './full-sizei-mage.js';
+import { displayBigPicture } from './full-size-image.js';
 
 const container = document.querySelector('.pictures');
 const imgFilters = document.querySelector('.img-filters');
